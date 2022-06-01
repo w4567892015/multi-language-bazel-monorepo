@@ -3,7 +3,7 @@ load("@npm//@bazel/jasmine:index.bzl", "jasmine_node_test")
 filegroup(
   name = "node_calculator",
   srcs = ["calculator.js"],
-  visibility = ["//projects/node_web:__pkg__"],
+  visibility = ["//projects/nodejs/node_web:__pkg__"],
 )
 
 jasmine_node_test(

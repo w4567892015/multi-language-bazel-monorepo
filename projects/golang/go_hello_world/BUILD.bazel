@@ -4,7 +4,7 @@ go_library(
   name = "go_hello_world",
   importpath = "github.com/example/project/projects/go_hello_world",
   srcs = ["hello_world.go"],
-  visibility = ["//projects/go_web:__pkg__"],
+  visibility = ["//projects/golang/go_web:__pkg__"],
 )
 
 go_test(

@@ -8,6 +8,9 @@
 
 ## Useful Commands
 
+### Clean all cache
+- `bazel clean --expunge`
+
 ### Build all targets
 
 - `bazel build //...`
@@ -18,7 +21,7 @@
 
 ### Run Python web app
 
-- `bazel run //projects/python_web`
+- `bazel run //projects/py_web`
 - http://localhost:5000
 
 ### Run Go web app
