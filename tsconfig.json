@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
+    "rootDirs": [
+      "./dist",
+      "bazel-out/k8-fastbuild/bin",
+      "bazel-out/darwin-fastbuild/bin",
+      "bazel-out/darwin_arm64-fastbuild/bin"
+    ],
+  },
+  "exclude": [
+    "bazel-bin",
+    "bazel-genfiles",
+    "bazel-out",
+    "bazel-protractor-lite",
+    "bazel-testlogs",
+    "dist",
+    "node_modules"
+  ]
+}
