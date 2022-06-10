@@ -1,0 +1,42 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_project", "ts_config")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
+load("@io_bazel_rules_docker//nodejs:image.bzl", "nodejs_image")
+load("@io_bazel_rules_docker//container:container.bzl", "container_pull", "container_image")
+
+ts_config(
+    name = "tsconfig_app",
+    src = "tsconfig.app.json",
+    deps = ["//:tsconfig.json"],
+)
+
+ts_project(
+    name = "app",
+    declaration = True,
+    tsconfig = ":tsconfig_app",
+    deps = [
+        "//projects/typescript/lib:@libs/calculator",
+        "@npm//express",
+    ],
+    supports_workers = True,
+)
+
+nodejs_binary(
+    name = "ts_web",
+    data = [":app"],
+    entry_point = ":src/index.ts",
+)
+
+# bazel run projects/typescript/ts_web:ts_web_image -- --norun
+nodejs_image(
+    name = "ts_web_image",
+    binary = ":ts_web",
+    include_node_repo_args = False,
+    node_repository_name = "nodejs_linux_amd64",
+    tags = ["local"],
+)
+
+container_image(
+    name = "docker_ts_web",
+    base = ":ts_web_image",
+    tags = ["local"],
+)

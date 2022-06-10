@@ -21,15 +21,20 @@
 
 ### Run Python web app
 
-- `bazel run //projects/py_web`
+- `bazel run //projects/python/py_web`
 - http://localhost:5000
 
 ### Run Go web app
 
-- `bazel run //projects/go_web`
+- `bazel run //projects/golang/go_web`
 - http://localhost:8000
 
 ### Run NodeJS web app
 
-- `bazel run //projects/node_web`
+- `bazel run //projects/nodejs/node_web`
+- http://localhost:8080
+
+### Run NodeJS web with Typescript app
+
+- `bazel run //projects/typescript/ts_web`
 - http://localhost:8080

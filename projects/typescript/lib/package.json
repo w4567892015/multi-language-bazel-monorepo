@@ -1,0 +1,7 @@
+{
+  "name": "@libs/calculator",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/calculator.js",
+  "typings": "dist/calculator.d.ts"
+}
