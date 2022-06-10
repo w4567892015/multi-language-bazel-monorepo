@@ -9,7 +9,7 @@
 ## Useful Commands
 
 ### Clean all cache
-- `bazel clean --expunge`
+- `yarn bazel:clean`
 
 ### Build all targets
 
