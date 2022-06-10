@@ -17,5 +17,6 @@ jobs:
         with:
           path: "~/.cache/bazel"
           key: bazel
+      - run: yarn
       - run: bazel build //...
       - run: bazel test //...
