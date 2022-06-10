@@ -66,7 +66,9 @@ build_bazel_rules_nodejs_dependencies()
 
 # fetches nodejs, npm, and yarn
 load("@build_bazel_rules_nodejs//:index.bzl", "node_repositories", "yarn_install")
-node_repositories()
+node_repositories(
+  node_version = "16.15.0"
+)
 
 # bazel run @yarn//:yarn
 yarn_install(
@@ -90,6 +92,8 @@ http_archive(
 load("@io_bazel_rules_docker//repositories:repositories.bzl", container_repositories = "repositories")
 container_repositories()
 
-load("@io_bazel_rules_docker//nodejs:image.bzl", _nodejs_image_repos = "repositories")
+load("//3rdparty:docker_images_workspace.bzl", "images_dependencies")
+images_dependencies()
 
+load("@io_bazel_rules_docker//nodejs:image.bzl", _nodejs_image_repos = "repositories")
 _nodejs_image_repos()
